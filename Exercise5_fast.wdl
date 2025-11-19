@@ -65,6 +65,12 @@ workflow CountNs_fast {
         input: values = Count_Ns.n_count
     }
 
+runtime {
+    docker: "biocontainers/seqtk:v1.3-4-deb_cv1"
+    cpu: 1
+    memory: "1 GB"
+}
+
     output {
         Int total_Ns = SumInts.total
     }
