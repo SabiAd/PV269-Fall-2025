@@ -16,6 +16,10 @@ task Count_Ns {
     output {
         Int n_count = read_int("countNS.txt")
     }
+
+    runtime {
+        docker: "biocontainers/seqtk:v1.3-4-deb_cv1"
+    }
 }
 
 workflow CountNs_slow {
@@ -30,9 +34,5 @@ workflow CountNs_slow {
 
     output {
         Int total_Ns = Count_Ns.n_count
-    }
-
-    runtime {
-        docker: "biocontainers/seqtk:v1.3-4-deb_cv1"
     }
 }
